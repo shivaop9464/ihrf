@@ -1,0 +1,11 @@
+{
+  "projectId": "fir-bca60",
+  "appId": "1:839661344968:web:471f4cd9b32f755f442dfd",
+  "apiKey": "AIzaSyAst2Y9uGGU5XwdSnFVeBUDICa8C7awgtw",
+  "authDomain": "fir-bca60.firebaseapp.com",
+  "databaseURL": "https://fir-bca60-default-rtdb.asia-southeast1.firebasedatabase.app",
+  "firestoreDatabaseId": "(default)",
+  "storageBucket": "fir-bca60.firebasestorage.app",
+  "messagingSenderId": "839661344968",
+  "measurementId": "G-JESBJE9Z9Z"
+}
