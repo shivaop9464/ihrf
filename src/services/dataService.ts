@@ -8,28 +8,57 @@ const KEYS = {
 };
 
 // Seed data
-const defaultTeam: TeamMember[] = [];
+const defaultTeam: TeamMember[] = [
+  {
+    id: "1",
+    name: "Hon'ble Chief Justice (Retd)",
+    role: "Chief Patron",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop",
+    bio: "Guiding our legal strategy with decades of experience in the highest courts.",
+    position: 1
+  },
+  {
+    id: "2",
+    name: "Hon'ble Justice (Retd)",
+    role: "Chairman",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+    bio: "Leading our mission to protect and preserve human rights across the nation.",
+    position: 2
+  }
+];
 
 const defaultGallery: GalleryImage[] = [];
 
 const defaultServices: Service[] = [
   {
     id: "1",
-    title: "AI Analysis",
-    description: "Submit your situation and our AI will analyze potential human rights violations based on international legal frameworks.",
-    icon: "FileSearch"
+    title: "Legal Advocacy",
+    description: "Providing legal assistance and advocacy for victims of human rights violations.",
+    icon: "Scale"
   },
   {
     id: "2",
-    title: "Legal Guidance",
-    description: "Receive step-by-step instructions and practical suggestions on how to address identified issues through legal channels.",
-    icon: "ShieldAlert"
+    title: "Public Awareness",
+    description: "Conducting campaigns and rallies to educate the public about their fundamental rights.",
+    icon: "Globe"
   },
   {
     id: "3",
-    title: "Impact Gallery",
-    description: "Explore the real-world impact of our platform through our curated gallery of success stories and community events.",
-    icon: "Image"
+    title: "Research & Reporting",
+    description: "Documenting violations and publishing comprehensive reports to demand accountability.",
+    icon: "FileSearch"
+  },
+  {
+    id: "4",
+    title: "Community Support",
+    description: "Grassroots mobilization and direct support for vulnerable communities in need.",
+    icon: "Users"
+  },
+  {
+    id: "5",
+    title: "Human Rights Education",
+    description: "Workshops and training programs for students and professionals on human rights law.",
+    icon: "Shield"
   }
 ];
 

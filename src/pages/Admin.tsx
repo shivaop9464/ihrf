@@ -131,7 +131,7 @@ export default function Admin() {
       setIsDbConnected(true);
     }, (err) => console.error("Complaints sync error:", err));
 
-    const unsubTeam = onSnapshot(query(collection(db, "team"), orderBy("createdAt", "asc")), (snap) => {
+    const unsubTeam = onSnapshot(query(collection(db, "team"), orderBy("position", "asc")), (snap) => {
       setTeam(snap.docs.map(doc => ({ id: doc.id, ...doc.data() } as any)));
     }, (err) => console.error("Team sync error:", err));
 
@@ -237,6 +237,7 @@ export default function Admin() {
       role: editingTeam.role,
       image: editingTeam.image || "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop",
       bio: editingTeam.bio || "",
+      position: Number(editingTeam.position) || 99,
       id,
       updatedAt: serverTimestamp()
     };
@@ -259,15 +260,15 @@ export default function Admin() {
 
   const handleSaveGalleryLocal = async () => {
     if (!editingGallery) return;
-    if (!editingGallery.url || !editingGallery.caption) {
-      notify("URL and Caption are required", "error");
+    if (!editingGallery.url) {
+      notify("Image URL is required", "error");
       return;
     }
     const id = editingGallery.id || generateId();
     
     const galleryData = {
       url: editingGallery.url,
-      caption: editingGallery.caption,
+      caption: editingGallery.caption || "",
       description: editingGallery.description || "",
       id,
       updatedAt: serverTimestamp()
@@ -673,7 +674,10 @@ export default function Admin() {
                       className="h-32 w-32 rounded-2xl object-cover shrink-0"
                     />
                     <div className="flex-1">
-                      <h3 className="text-xl font-black tracking-tight uppercase text-[#141414] mb-1">{member.name}</h3>
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-xl font-black tracking-tight uppercase text-[#141414] mb-1">{member.name}</h3>
+                        <span className="bg-[#141414]/5 px-2 py-1 rounded text-[9px] font-black uppercase text-[#141414]/40">Pos: {member.position || 0}</span>
+                      </div>
                       <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-3">{member.role}</p>
                       <p className="text-xs text-[#141414]/60 font-medium line-clamp-3 mb-6 leading-relaxed">{member.bio || "No profile bio provided."}</p>
                       
@@ -916,6 +920,16 @@ export default function Admin() {
                     className="w-full px-4 py-3 rounded-xl border border-border bg-slate-50 focus:ring-2 focus:ring-accent outline-none font-medium text-black"
                   />
                 </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Position Number (Order)</label>
+                  <input 
+                    type="number"
+                    value={editingTeam.position || ""} 
+                    onChange={e => setEditingTeam({...editingTeam, position: parseInt(e.target.value)})}
+                    placeholder="e.g. 1, 2, 3"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-slate-50 focus:ring-2 focus:ring-accent outline-none font-medium text-black"
+                  />
+                </div>
                 <div className="space-y-1 text-black">
                   <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Bio</label>
                   <textarea 
@@ -982,7 +996,7 @@ export default function Admin() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Caption</label>
+                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Caption (Optional)</label>
                   <input 
                     value={editingGallery.caption || ""} 
                     onChange={e => setEditingGallery({...editingGallery, caption: e.target.value})}
@@ -991,7 +1005,7 @@ export default function Admin() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Description</label>
+                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Description (Optional)</label>
                   <textarea 
                     rows={4}
                     value={editingGallery.description || ""} 

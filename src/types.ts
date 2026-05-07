@@ -25,6 +25,7 @@ export interface TeamMember {
   role: string;
   image: string;
   bio: string;
+  position?: number;
 }
 
 export interface GalleryImage {

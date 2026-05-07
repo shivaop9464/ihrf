@@ -19,6 +19,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
+    { name: "AI Analysis", path: "/analysis" },
     { name: "Team", path: "/team" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },

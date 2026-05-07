@@ -9,7 +9,7 @@ export default function Team() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(db, "team"), orderBy("createdAt", "asc")), (snap) => {
+    const unsubscribe = onSnapshot(query(collection(db, "team"), orderBy("position", "asc")), (snap) => {
       setTeam(snap.docs.map(doc => ({ id: doc.id, ...doc.data() } as TeamMember)));
       setLoading(false);
     }, (err) => {
@@ -32,9 +32,9 @@ export default function Team() {
     <div className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-10">
         <div className="text-center mb-20">
-          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6">THE ARCHITECTS</h1>
+          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 uppercase">Patrons & Leadership</h1>
           <p className="text-muted max-w-2xl mx-auto font-medium">
-            Meet the experts dedicated to bridging the gap between technology and human rights advocacy.
+            Guided by the wisdom of legal luminaries and the passion of human rights defenders.
           </p>
         </div>
 

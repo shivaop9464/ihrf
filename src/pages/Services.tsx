@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Loader2, Send, FileText, CheckCircle2, AlertCircle, Info, Printer, ArrowRight, Shield, History, Trash2 } from "lucide-react";
+import { Loader2, Send, FileText, CheckCircle2, AlertCircle, Info, Printer, ArrowRight, Shield, History, Trash2, Scale, Globe, Users } from "lucide-react";
 import { analyzeComplaint } from "../services/aiService";
 import { AIResult } from "../types";
 import { cn } from "../lib/utils";
@@ -297,19 +297,71 @@ export default function Services() {
 
         <AnimatePresence mode="wait">
           {!result && !isAnalyzing && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex-1 flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-border rounded-3xl"
-            >
-              <div className="h-16 w-16 bg-surface rounded-2xl flex items-center justify-center mb-4 border border-border shadow-sm">
-                <Info className="h-8 w-8 text-neutral-400" />
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-6 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-all"
+                >
+                  <Scale className="h-8 w-8 text-accent mb-4" />
+                  <h3 className="text-base font-bold mb-2 uppercase tracking-tight">Legal Advocacy & Consultation</h3>
+                  <p className="text-xs text-muted leading-relaxed font-bold">
+                    Professional legal assistance for victims of rights violations. We help you navigate the complex judicial landscape.
+                  </p>
+                </motion.div>
+                <motion.div 
+                   initial={{ opacity: 0, y: 10 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ delay: 0.1 }}
+                   className="p-6 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-all"
+                >
+                  <Globe className="h-8 w-8 text-accent mb-4" />
+                  <h3 className="text-base font-bold mb-2 uppercase tracking-tight">Public Awareness Campaigns</h3>
+                  <p className="text-xs text-muted leading-relaxed font-bold">
+                    Educational programs and rallies designed to empower citizens with knowledge of their fundamental rights.
+                  </p>
+                </motion.div>
+                <motion.div 
+                   initial={{ opacity: 0, y: 10 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ delay: 0.2 }}
+                   className="p-6 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-all"
+                >
+                  <Users className="h-8 w-8 text-accent mb-4" />
+                  <h3 className="text-base font-bold mb-2 uppercase tracking-tight">Community Support Systems</h3>
+                  <p className="text-xs text-muted leading-relaxed font-bold">
+                    Mobilizing grassroots networks and providing direct support to vulnerable populations and minorities.
+                  </p>
+                </motion.div>
+                <motion.div 
+                   initial={{ opacity: 0, y: 10 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ delay: 0.3 }}
+                   className="p-6 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-all"
+                >
+                  <FileText className="h-8 w-8 text-accent mb-4" />
+                  <h3 className="text-base font-bold mb-2 uppercase tracking-tight">RTI & Rights Documentation</h3>
+                  <p className="text-xs text-muted leading-relaxed font-bold">
+                    Assisting with 'Right to Information' filings and documenting systemic abuses for institutional reform.
+                  </p>
+                </motion.div>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-ink">No Analysis Yet</h3>
-              <p className="text-sm text-muted max-w-xs font-medium">
-                Submit your incident description on the left to begin the AI-powered legal analysis.
-              </p>
-            </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-border rounded-3xl bg-surface/50"
+              >
+                <div className="h-16 w-16 bg-surface rounded-2xl flex items-center justify-center mb-4 border border-border shadow-sm">
+                  <Info className="h-8 w-8 text-neutral-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-ink">Ready to Start Analysis?</h3>
+                <p className="text-sm text-muted max-w-xs font-medium">
+                  Submit your incident description on the left to activate our AI Human Rights agents.
+                </p>
+              </motion.div>
+            </div>
           )}
 
           {isAnalyzing && (

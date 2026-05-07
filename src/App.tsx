@@ -9,6 +9,7 @@ import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
+import IHRFServices from "./pages/IHRFServices";
 import { AuthProvider } from "./components/AuthProvider";
 
 export default function App() {
@@ -43,7 +44,8 @@ export default function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
+              <Route path="/services" element={<IHRFServices />} />
+              <Route path="/analysis" element={<Services />} />
               <Route path="/team" element={<Team />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/contact" element={<Contact />} />

@@ -54,25 +54,25 @@ export default function Home() {
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent">Empowering Global Justice 2026</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-display font-bold leading-[0.9] mb-8 tracking-tighter">
-              DEFENDING <br/>
-              <span className="bg-clip-text text-transparent bg-gradient-to-br from-ink to-accent">HUMAN RIGHTS</span> <br/>
-              WITH AI PRECISION.
+              PROTECTING <br/>
+              <span className="bg-clip-text text-transparent bg-gradient-to-br from-ink to-accent">DIGNITY.</span> <br/>
+              DEFENDING FREEDOM.
             </h1>
             <p className="text-lg text-muted mb-10 max-w-lg leading-relaxed font-medium">
-              IHRF Federation leverages advanced artificial intelligence to analyze violations, provide legal guidance, and advocate for justice worldwide.
+              Together, we protect dignity, defend freedom, and demand accountability. Join IHRF Federation in our mission for global justice and human rights.
             </p>
             <div className="flex flex-wrap gap-5">
               <Link
                 to="/services"
                 className="bg-accent text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 flex items-center gap-3 shadow-lg shadow-accent/20"
               >
-                Analyze My Case <ArrowRight className="h-5 w-5" />
+                Submit A Case <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
-                to="/gallery"
+                to="/contact"
                 className="bg-surface border border-border text-ink px-8 py-4 rounded-full font-bold transition-all hover:bg-black/5 dark:hover:bg-white/5"
               >
-                View Impact
+                Join Volunteers
               </Link>
             </div>
           </motion.div>
@@ -123,6 +123,51 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors uppercase tracking-tight">{service.title}</h3>
                 <p className="text-muted leading-relaxed font-medium">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      {/* FAQ Section */}
+      <section className="py-32">
+        <div className="max-w-4xl mx-auto px-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl mb-6">FREQUENTLY ASKED</h2>
+            <p className="text-muted text-lg font-medium">Got questions? We have answers.</p>
+          </div>
+          <div className="space-y-6">
+            {[
+              {
+                q: "What is IHRF's primary mission?",
+                a: "Our mission is to advocate for justice, raise public awareness about human rights, and provide legal guidance to those whose rights have been violated."
+              },
+              {
+                q: "How can I join as a volunteer?",
+                a: "You can sign up through our Contact page or Visit our Head Office. We welcome individuals with legal, social work, or educational backgrounds."
+              },
+              {
+                q: "Is IHRF a government organization?",
+                a: "No, IHRF is an independent federation dedicated to non-partisan advocacy for human rights and justice across India and globally."
+              },
+              {
+                q: "Do you provide direct legal representation?",
+                a: "We provide legal advocacy, consultation, and help victims connect with the right legal channels and resources to fight their cases."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-surface border border-border rounded-3xl p-8 hover:border-accent/30 transition-colors"
+              >
+                <h3 className="text-xl font-bold mb-4 text-ink uppercase tracking-tight">{item.q}</h3>
+                <p className="text-muted leading-relaxed font-medium">{item.a}</p>
               </motion.div>
             ))}
           </div>

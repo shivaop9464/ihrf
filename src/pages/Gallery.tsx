@@ -53,7 +53,7 @@ export default function Gallery() {
             >
               <img
                 src={image.url}
-                alt={image.caption}
+                alt={image.caption || "IHRF Gallery Image"}
                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
@@ -61,9 +61,11 @@ export default function Gallery() {
                 <ZoomIn className="text-white h-10 w-10 mb-2" />
                 <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">View Details</span>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <h3 className="text-white text-lg font-extrabold tracking-tight line-clamp-1">{image.caption}</h3>
-              </div>
+              {image.caption && (
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="text-white text-lg font-extrabold tracking-tight line-clamp-1">{image.caption}</h3>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -88,7 +90,7 @@ export default function Gallery() {
               <div className="lg:w-2/3 bg-black flex items-center justify-center overflow-hidden h-[40vh] lg:h-auto">
                 <img 
                   src={selectedImage.url} 
-                  alt={selectedImage.caption} 
+                  alt={selectedImage.caption || "IHRF Detail Image"} 
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -96,9 +98,11 @@ export default function Gallery() {
               <div className="lg:w-1/3 p-8 md:p-12 overflow-y-auto bg-surface">
                 <div className="mb-8">
                   <span className="text-accent font-extrabold uppercase tracking-[0.3em] text-[10px] mb-4 block">Case Gallery</span>
-                  <h2 className="text-3xl md:text-4xl font-extrabold tracking-tighter text-ink uppercase leading-none mb-6">
-                    {selectedImage.caption}
-                  </h2>
+                  {selectedImage.caption && (
+                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tighter text-ink uppercase leading-none mb-6">
+                      {selectedImage.caption}
+                    </h2>
+                  )}
                   <div className="w-12 h-1 bg-accent rounded-full" />
                 </div>
 
