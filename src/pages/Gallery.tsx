@@ -31,7 +31,7 @@ export default function Gallery() {
   }
 
   return (
-    <div className="py-24 bg-[#F8FAFC]">
+    <div className="py-24 bg-bg transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-10">
         <div className="text-center mb-20">
           <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 uppercase">Impact Gallery</h1>

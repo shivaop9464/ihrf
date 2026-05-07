@@ -93,7 +93,7 @@ const stats = [
 
 export default function IHRFServices() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-bg min-h-screen transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -142,11 +142,11 @@ export default function IHRFServices() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold text-blue-900 mb-8 tracking-tighter uppercase leading-[1.1]">
+              <h2 className="text-4xl md:text-6xl font-bold text-ink mb-8 tracking-tighter uppercase leading-[1.1]">
                 A Comprehensive Approach to <br />
                 <span className="text-amber-600">Global Justice.</span>
               </h2>
-              <p className="text-lg text-neutral-600 font-medium leading-relaxed mb-6">
+              <p className="text-lg text-muted font-medium leading-relaxed mb-6">
                 IHRF – International Human Rights Federation operates at the intersection of legal expertise, humanitarian relief, and grassroots advocacy. Our services are designed to address both the immediate symptoms and the systemic causes of human rights abuses.
               </p>
               <p className="text-neutral-500 font-medium italic">
@@ -176,33 +176,33 @@ export default function IHRFServices() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-32 bg-neutral-50">
+      <section className="py-32 bg-surface/30 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-10">
           <div className="text-center mb-24">
-            <span className="text-blue-600 font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Pillars</span>
-            <h2 className="text-5xl md:text-7xl font-bold text-blue-900 tracking-tighter uppercase">Professional Services</h2>
+            <span className="text-accent font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Pillars</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-ink tracking-tighter uppercase">Professional Services</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((item, i) => (
               <motion.div
-                key={i}
+                key={`service-${item.title}-${i}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group bg-white p-10 rounded-[2.5rem] border border-neutral-200 hover:border-amber-500 hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
+                className="group bg-surface p-10 rounded-[2.5rem] border border-border hover:border-amber-500 hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
               >
                 <div className={`${item.color} w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform duration-500`}>
                   <item.icon className="h-8 w-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-900 mb-4 uppercase tracking-tight group-hover:text-amber-600 transition-colors">
+                <h3 className="text-2xl font-bold text-ink mb-4 uppercase tracking-tight group-hover:text-amber-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-neutral-500 font-medium leading-relaxed">
+                <p className="text-muted font-medium leading-relaxed">
                   {item.description}
                 </p>
-                <div className="mt-8 pt-8 border-t border-neutral-100">
+                <div className="mt-8 pt-8 border-t border-border">
                   <Link to="/contact" className="text-blue-600 font-bold text-sm uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
                     Inquire More <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -251,19 +251,19 @@ export default function IHRFServices() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 border-b border-neutral-100">
+      <section className="py-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {stats.map((stat, i) => (
               <motion.div
-                key={i}
+                key={`stat-${stat.label}-${i}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-blue-900 tracking-tighter mb-2">{stat.value}</div>
+                <div className="text-5xl md:text-6xl font-bold text-ink tracking-tighter mb-2">{stat.value}</div>
                 <div className="text-xs uppercase font-extrabold tracking-[0.2em] text-amber-600">{stat.label}</div>
               </motion.div>
             ))}

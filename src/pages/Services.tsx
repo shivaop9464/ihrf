@@ -397,7 +397,7 @@ export default function Services() {
                   <h3 className="text-ink">Rights Identified</h3>
                   <ul className="list-disc pl-5 space-y-1 text-ink">
                     {(result?.rights_violated || "").split(',').map((r, i) => (
-                      <li key={i}>{r.trim() || "N/A"}</li>
+                      <li key={`right-${i}`}>{r.trim() || "N/A"}</li>
                     ))}
                   </ul>
                   <p className="mt-3 pt-3 border-t border-border italic text-xs text-muted">
@@ -410,7 +410,7 @@ export default function Services() {
                   <h3 className="text-ink">Immediate Actions</h3>
                   <ul className="list-disc pl-5 space-y-1 text-ink">
                     {(result?.step_by_step_actions || []).map((action, i) => (
-                      <li key={i}>{action}</li>
+                      <li key={`step-${i}`}>{action}</li>
                     ))}
                   </ul>
                 </div>
@@ -420,7 +420,7 @@ export default function Services() {
                   <h3 className="text-ink">Clarifying Questions</h3>
                   <div className="space-y-2">
                     {(result?.follow_up_questions || []).map((q, i) => (
-                      <p key={i} className="p-3 bg-bg border border-border rounded-lg text-xs italic text-ink">
+                      <p key={`question-${i}`} className="p-3 bg-bg border border-border rounded-lg text-xs italic text-ink">
                         {q}
                       </p>
                     ))}

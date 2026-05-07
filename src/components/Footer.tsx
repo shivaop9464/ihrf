@@ -50,20 +50,8 @@ export default function Footer() {
       </footer>
       
       {/* 2026 Status Bar */}
-      <div className="h-14 bg-surface dark:bg-[#0A0A0A] border-t border-border flex items-center justify-between px-10 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-muted overflow-x-auto whitespace-nowrap transition-colors duration-300">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-success rounded-full animate-pulse" />
-            <span>AI CORE: ONLINE</span>
-          </div>
-          <span className="opacity-20">|</span>
-          <span>SYSTEM LATENCY: 24MS</span>
-          <span className="opacity-20">|</span>
-          <span>PROTECTED USERS: 842K+</span>
-          <span className="opacity-20">|</span>
-          <span className="text-accent">ENCRYPTION: QUANTUM-READY</span>
-        </div>
-        <div className="ml-10">© 2026 IHRF FEDERATION. ALL RIGHTS RESERVED.</div>
+      <div className="h-14 bg-surface dark:bg-[#0A0A0A] border-t border-border flex items-center justify-center px-10 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-muted overflow-x-auto whitespace-nowrap transition-colors duration-300">
+        <div>© 2026 IHRF FEDERATION. ALL RIGHTS RESERVED.</div>
       </div>
     </div>
   );

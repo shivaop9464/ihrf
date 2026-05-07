@@ -160,7 +160,7 @@ export default function Home() {
               }
             ].map((item, i) => (
               <motion.div
-                key={i}
+                key={`faq-${i}`}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

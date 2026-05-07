@@ -29,10 +29,10 @@ export default function Team() {
   }
 
   return (
-    <div className="py-24 bg-white">
+    <div className="py-24 bg-bg transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-10">
-        <div className="text-center mb-20">
-          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 uppercase">Patrons & Leadership</h1>
+        <div className="text-center mb-20 text-ink">
+          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 uppercase text-ink">Patrons & Leadership</h1>
           <p className="text-muted max-w-2xl mx-auto font-medium">
             Guided by the wisdom of legal luminaries and the passion of human rights defenders.
           </p>
@@ -48,7 +48,7 @@ export default function Team() {
               transition={{ delay: i * 0.1 }}
               className="group"
             >
-              <div className="relative aspect-square overflow-hidden rounded-3xl mb-6 bg-[#F1F5F9]">
+              <div className="relative aspect-square overflow-hidden rounded-3xl mb-6 bg-surface/50 border border-border">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -56,7 +56,7 @@ export default function Team() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <h3 className="text-xl font-extrabold tracking-tight mb-1 uppercase">{member.name}</h3>
+              <h3 className="text-xl font-extrabold tracking-tight mb-1 uppercase text-ink">{member.name}</h3>
               <div className="text-[10px] font-extrabold uppercase tracking-widest text-accent mb-3">{member.role}</div>
               <p className="text-sm text-muted leading-relaxed font-medium">
                 {member.bio}

@@ -504,7 +504,7 @@ export default function Admin() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    key={stat.label}
+                    key={`dash-stat-${stat.label}`}
                     className="bg-white p-8 rounded-[2rem] border border-[#141414]/5 shadow-sm hover:shadow-xl transition-all group"
                   >
                     <div className="flex justify-between items-start mb-6">
