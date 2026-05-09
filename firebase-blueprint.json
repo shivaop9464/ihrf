@@ -35,6 +35,7 @@
       "properties": {
         "name": { "type": "string" },
         "role": { "type": "string" },
+        "designation": { "type": "string" },
         "image": { "type": "string" },
         "bio": { "type": "string" }
       },

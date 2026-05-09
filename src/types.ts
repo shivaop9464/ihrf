@@ -23,6 +23,7 @@ export interface TeamMember {
   id: string;
   name: string;
   role: string;
+  designation?: string;
   image: string;
   bio: string;
   position?: number;
