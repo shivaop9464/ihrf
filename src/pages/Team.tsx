@@ -59,6 +59,12 @@ export default function Team() {
               <h3 className="text-xl font-extrabold tracking-tight mb-1 uppercase text-ink">{member.name}</h3>
               <div className="flex flex-wrap items-baseline gap-2 mb-3">
                 <div className="text-[10px] font-extrabold uppercase tracking-widest text-accent">{member.role}</div>
+                {member.role2 && (
+                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#141414]/40">/ {member.role2}</div>
+                )}
+                {member.role3 && (
+                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#141414]/40">/ {member.role3}</div>
+                )}
                 {member.designation && (
                   <div className="text-[11px] font-bold uppercase tracking-wider text-accent-gold">| {member.designation}</div>
                 )}

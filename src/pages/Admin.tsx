@@ -235,6 +235,8 @@ export default function Admin() {
     const teamData: any = {
       name: editingTeam.name,
       role: editingTeam.role,
+      role2: editingTeam.role2 || "",
+      role3: editingTeam.role3 || "",
       designation: editingTeam.designation || "",
       image: editingTeam.image || "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop",
       bio: editingTeam.bio || "",
@@ -680,6 +682,12 @@ export default function Admin() {
                         <span className="bg-[#141414]/5 px-2 py-1 rounded text-[9px] font-black uppercase text-[#141414]/40">Pos: {member.position || 0}</span>
                       </div>
                       <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-1">{member.role}</p>
+                      {member.role2 && (
+                        <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-1">{member.role2}</p>
+                      )}
+                      {member.role3 && (
+                        <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-1">{member.role3}</p>
+                      )}
                       {member.designation && (
                         <p className="text-accent-gold text-[11px] font-black uppercase tracking-widest mb-3">{member.designation}</p>
                       )}
@@ -912,6 +920,24 @@ export default function Admin() {
                     value={editingTeam.role || ""} 
                     onChange={e => setEditingTeam({...editingTeam, role: e.target.value})}
                     placeholder="Enter professional role"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-slate-50 focus:ring-2 focus:ring-accent outline-none font-medium text-black"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Role 2 (Optional)</label>
+                  <input 
+                    value={editingTeam.role2 || ""} 
+                    onChange={e => setEditingTeam({...editingTeam, role2: e.target.value})}
+                    placeholder="Enter second role"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-slate-50 focus:ring-2 focus:ring-accent outline-none font-medium text-black"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-muted ml-1">Role 3 (Optional)</label>
+                  <input 
+                    value={editingTeam.role3 || ""} 
+                    onChange={e => setEditingTeam({...editingTeam, role3: e.target.value})}
+                    placeholder="Enter third role"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-slate-50 focus:ring-2 focus:ring-accent outline-none font-medium text-black"
                   />
                 </div>
