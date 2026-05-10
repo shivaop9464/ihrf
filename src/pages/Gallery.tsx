@@ -43,7 +43,7 @@ export default function Gallery() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {images.map((image, i) => (
             <motion.div
-              key={image.id || i}
+              key={`${image.id}-${i}`}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

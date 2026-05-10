@@ -41,7 +41,7 @@ export default function Team() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {team.map((member, i) => (
             <motion.div
-              key={member.id || i}
+              key={`${member.id || 'new'}-${i}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -56,17 +56,23 @@ export default function Team() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <h3 className="text-xl font-extrabold tracking-tight mb-1 uppercase text-ink">{member.name}</h3>
-              <div className="flex flex-wrap items-baseline gap-2 mb-3">
-                <div className="text-[10px] font-extrabold uppercase tracking-widest text-accent">{member.role}</div>
+              <div className="flex items-baseline gap-2 mb-1 w-full overflow-hidden">
+                <h3 className="text-lg font-extrabold tracking-tight uppercase text-ink truncate shrink-0 max-w-[70%]">{member.name}</h3>
+                {member.designation && (
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-accent-gold truncate opacity-90">| {member.designation}</div>
+                )}
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5 mb-3">
+                <div className="text-[11px] font-black uppercase tracking-[0.1em] text-accent">{member.role}</div>
                 {member.role2 && (
-                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#141414]/40">/ {member.role2}</div>
+                  <div className="text-[11px] font-black uppercase tracking-[0.1em] text-[#141414]/30 flex items-center gap-1.5">
+                    <span className="text-[10px] opacity-50">/</span> {member.role2}
+                  </div>
                 )}
                 {member.role3 && (
-                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#141414]/40">/ {member.role3}</div>
-                )}
-                {member.designation && (
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-accent-gold">| {member.designation}</div>
+                  <div className="text-[11px] font-black uppercase tracking-[0.1em] text-[#141414]/30 flex items-center gap-1.5">
+                    <span className="text-[10px] opacity-50">/</span> {member.role3}
+                  </div>
                 )}
               </div>
               <p className="text-sm text-muted leading-relaxed font-medium">

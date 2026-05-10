@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInAnonymously } from 'firebase/auth';
-import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
+import { initializeFirestore, doc, getDocFromServer } from 'firebase/firestore';
 import firebaseConfigTemplate from '../../firebase-applet-config.json';
 
 // Use environment variables if they exist, otherwise fallback to the JSON config
@@ -21,11 +21,14 @@ const app = initializeApp(firebaseConfig as any);
 // Initialize Firestore
 // Use explicit database ID if provided and not (default)
 const dbId = firebaseConfig.firestoreDatabaseId;
-export const db = (dbId && dbId !== '(default)' && dbId.trim() !== '')
-  ? getFirestore(app, dbId)
-  : getFirestore(app);
+const isNamedDatabase = dbId && dbId !== '(default)' && dbId.trim() !== '';
 
-console.log("Firestore initialized for project:", firebaseConfig.projectId, "with database:", dbId || "(default)");
+export const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+  ...(isNamedDatabase ? { databaseId: dbId } : {})
+});
+
+console.log("Firestore initialized for project:", firebaseConfig.projectId, "with database:", isNamedDatabase ? dbId : "(default)", "(Long polling enabled)");
 
 // Initialize Auth safely
 let authInstance;
@@ -78,10 +81,19 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
 // Connection test
 async function testConnection() {
   try {
+    console.log("Testing Firestore connection...");
     await getDocFromServer(doc(db, 'test', 'connection'));
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.error("Please check your Firebase configuration or internet connection.");
+    console.log("Firestore connection test successful.");
+  } catch (error: any) {
+    console.error("Firestore connection failed details:", {
+      code: error.code,
+      message: error.message,
+      name: error.name
+    });
+    // The specific message from the user's report
+    if (error.message?.includes('the client is offline') || error.code === 'unavailable') {
+      console.error("Firebase connection unreachable. This could be due to invalid project configuration (Project ID, API Key) or restricted network environment.");
+      console.error("Current Project ID being used:", firebaseConfig.projectId);
     }
   }
 }

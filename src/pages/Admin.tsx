@@ -617,8 +617,8 @@ export default function Admin() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#141414]/5">
-                    {filteredComplaints.length > 0 ? filteredComplaints.map((c) => (
-                      <tr key={c.id} className="hover:bg-[#F8FAFC] transition-all group">
+                    {filteredComplaints.length > 0 ? filteredComplaints.map((c, i) => (
+                      <tr key={`${c.id}-${i}`} className="hover:bg-[#F8FAFC] transition-all group">
                         <td className="px-8 py-5 text-sm font-bold text-[#141414]/60">
                           {new Date(c.timestamp).toLocaleDateString()}
                         </td>
@@ -669,28 +669,36 @@ export default function Admin() {
                 </button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {team.map((member) => (
-                  <div key={member.id} className="bg-white p-6 rounded-3xl border border-[#141414]/5 shadow-sm flex flex-col sm:flex-row gap-6 relative group overflow-hidden">
+                {team.map((member, i) => (
+                  <div key={`${member.id}-${i}`} className="bg-white p-6 rounded-3xl border border-[#141414]/5 shadow-sm flex flex-col sm:flex-row gap-6 relative group overflow-hidden">
                     <img 
                       src={member.image} 
                       alt={member.name} 
                       className="h-32 w-32 rounded-2xl object-cover shrink-0"
                     />
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start">
-                        <h3 className="text-xl font-black tracking-tight uppercase text-[#141414] mb-1">{member.name}</h3>
-                        <span className="bg-[#141414]/5 px-2 py-1 rounded text-[9px] font-black uppercase text-[#141414]/40">Pos: {member.position || 0}</span>
+                    <div className="flex-1 overflow-hidden">
+                      <div className="flex justify-between items-baseline mb-1 gap-2">
+                        <div className="flex items-baseline gap-2 overflow-hidden">
+                          <h3 className="text-xl font-black tracking-tight uppercase text-[#141414] truncate shrink-0 max-w-[60%]">{member.name}</h3>
+                          {member.designation && (
+                            <span className="text-accent-gold text-[10px] font-black uppercase tracking-widest whitespace-nowrap opacity-80">| {member.designation}</span>
+                          )}
+                        </div>
+                        <span className="bg-[#141414]/5 px-2 py-1 rounded text-[9px] font-black uppercase text-[#141414]/40 whitespace-nowrap shrink-0">Pos: {member.position || 0}</span>
                       </div>
-                      <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-1">{member.role}</p>
-                      {member.role2 && (
-                        <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-1">{member.role2}</p>
-                      )}
-                      {member.role3 && (
-                        <p className="text-accent text-[10px] font-black uppercase tracking-widest mb-1">{member.role3}</p>
-                      )}
-                      {member.designation && (
-                        <p className="text-accent-gold text-[11px] font-black uppercase tracking-widest mb-3">{member.designation}</p>
-                      )}
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-1.5">
+                        <p className="text-accent text-[11px] font-black uppercase tracking-[0.1em] leading-tight">{member.role}</p>
+                        {member.role2 && (
+                          <div className="text-[#141414]/30 text-[11px] font-black uppercase tracking-[0.1em] leading-tight flex items-center gap-1.5">
+                            <span className="text-[10px] opacity-50">/</span> {member.role2}
+                          </div>
+                        )}
+                        {member.role3 && (
+                          <div className="text-[#141414]/30 text-[11px] font-black uppercase tracking-[0.1em] leading-tight flex items-center gap-1.5">
+                            <span className="text-[10px] opacity-50">/</span> {member.role3}
+                          </div>
+                        )}
+                      </div>
                       <p className="text-xs text-[#141414]/60 font-medium line-clamp-3 mb-6 leading-relaxed">{member.bio || "No profile bio provided."}</p>
                       
                       <div className="flex items-center gap-3">
@@ -730,8 +738,8 @@ export default function Admin() {
                 </button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {gallery.map((img) => (
-                  <div key={img.id} className="bg-white rounded-[2rem] border border-[#141414]/5 shadow-sm overflow-hidden group flex flex-col">
+                {gallery.map((img, i) => (
+                  <div key={`${img.id}-${i}`} className="bg-white rounded-[2rem] border border-[#141414]/5 shadow-sm overflow-hidden group flex flex-col">
                     <div className="aspect-[4/3] relative overflow-hidden">
                       <img 
                         src={img.url} 
@@ -783,8 +791,8 @@ export default function Admin() {
                 </button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {services.map((service) => (
-                  <div key={service.id} className="bg-white p-6 rounded-3xl border border-[#141414]/5 shadow-sm flex gap-6">
+                {services.map((service, i) => (
+                  <div key={`${service.id}-${i}`} className="bg-white p-6 rounded-3xl border border-[#141414]/5 shadow-sm flex gap-6">
                     <div className="h-16 w-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center shrink-0">
                       <FileText className="h-8 w-8" />
                     </div>
