@@ -412,7 +412,7 @@ export default function Admin() {
             <Logo size={48} variant="light" />
             <div>
               <div className="text-2xl font-black tracking-tighter uppercase leading-none">
-                IHRF<span className="text-accent">FED</span>
+                IHRF
               </div>
               <div className="text-[9px] font-black uppercase tracking-[0.3em] opacity-40 mt-1">Command & Control</div>
             </div>
@@ -689,13 +689,13 @@ export default function Admin() {
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-1.5">
                         <p className="text-accent text-[11px] font-black uppercase tracking-[0.1em] leading-tight">{member.role}</p>
                         {member.role2 && (
-                          <div className="text-[#141414]/30 text-[11px] font-black uppercase tracking-[0.1em] leading-tight flex items-center gap-1.5">
-                            <span className="text-[10px] opacity-50">/</span> {member.role2}
+                          <div className="text-accent text-[11px] font-black uppercase tracking-[0.1em] leading-tight flex items-center gap-1.5">
+                            <span className="text-[10px] opacity-30 text-[#141414]">/</span> {member.role2}
                           </div>
                         )}
                         {member.role3 && (
-                          <div className="text-[#141414]/30 text-[11px] font-black uppercase tracking-[0.1em] leading-tight flex items-center gap-1.5">
-                            <span className="text-[10px] opacity-50">/</span> {member.role3}
+                          <div className="text-accent text-[11px] font-black uppercase tracking-[0.1em] leading-tight flex items-center gap-1.5">
+                            <span className="text-[10px] opacity-30 text-[#141414]">/</span> {member.role3}
                           </div>
                         )}
                       </div>

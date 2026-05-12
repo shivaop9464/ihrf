@@ -35,9 +35,9 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             </div>
             <div className="flex flex-col">
               <div className="text-xl sm:text-2xl font-display font-bold tracking-tighter uppercase whitespace-nowrap leading-none transition-colors duration-300">
-                IHRF<span className="text-accent-gold ml-1">FED</span>
+                IHRF
               </div>
-              <div className="text-[8px] font-bold tracking-[0.3em] uppercase text-accent-gold/80 leading-none mt-1">Federation 2026</div>
+              <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-accent-gold/80 leading-none mt-1">Justice for all</div>
             </div>
           </Link>
         </div>

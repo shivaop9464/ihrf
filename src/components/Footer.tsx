@@ -14,7 +14,7 @@ export default function Footer() {
                 <Logo size={56} className="transition-transform duration-500 group-hover:scale-110" />
                 <div className="flex flex-col">
                   <div className="text-2xl font-display font-bold tracking-tighter uppercase text-ink leading-none">
-                    IHRF<span className="text-accent ml-1">FEDERATION</span>
+                    IHRF
                   </div>
                   <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-accent/60 leading-none mt-2">Justice for all</div>
                 </div>
@@ -51,7 +51,7 @@ export default function Footer() {
       
       {/* 2026 Status Bar */}
       <div className="h-14 bg-surface dark:bg-[#0A0A0A] border-t border-border flex items-center justify-center px-10 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-muted overflow-x-auto whitespace-nowrap transition-colors duration-300">
-        <div>© 2026 IHRF FEDERATION. ALL RIGHTS RESERVED.</div>
+        <div>© 2026 IHRF. ALL RIGHTS RESERVED.</div>
       </div>
     </div>
   );

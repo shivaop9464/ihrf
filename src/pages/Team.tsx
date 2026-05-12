@@ -65,13 +65,13 @@ export default function Team() {
               <div className="flex flex-wrap items-center gap-1.5 mb-3">
                 <div className="text-[11px] font-black uppercase tracking-[0.1em] text-accent">{member.role}</div>
                 {member.role2 && (
-                  <div className="text-[11px] font-black uppercase tracking-[0.1em] text-[#141414]/30 flex items-center gap-1.5">
-                    <span className="text-[10px] opacity-50">/</span> {member.role2}
+                  <div className="text-[11px] font-black uppercase tracking-[0.1em] text-accent flex items-center gap-1.5">
+                    <span className="text-[10px] opacity-30 text-[#141414]">/</span> {member.role2}
                   </div>
                 )}
                 {member.role3 && (
-                  <div className="text-[11px] font-black uppercase tracking-[0.1em] text-[#141414]/30 flex items-center gap-1.5">
-                    <span className="text-[10px] opacity-50">/</span> {member.role3}
+                  <div className="text-[11px] font-black uppercase tracking-[0.1em] text-accent flex items-center gap-1.5">
+                    <span className="text-[10px] opacity-30 text-[#141414]">/</span> {member.role3}
                   </div>
                 )}
               </div>
